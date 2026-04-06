@@ -1,3 +1,33 @@
 spring:
   application:
     name: Blog
+
+# ===============================
+# DATABASE CONFIGURATION (H2 in-memory)
+# ===============================
+  datasource:
+    url: jdbc:h2:mem:blog_db
+    driver-class-name: org.h2.Driver
+    username: orlandao
+    password: 12345678
+
+  sql:
+    init:
+      schema-locations: classpath*:schema.sql
+      data-locations: classpath*:data.sql
+      mode: always
+
+  # ===============================
+  # EXCLUSIVO H2
+  # ===============================
+    h2:
+      console:
+        enabled: true
+        path: "/console"
+        settings:
+          trace: true
+          web-allow-others: true
+
+
+
+
