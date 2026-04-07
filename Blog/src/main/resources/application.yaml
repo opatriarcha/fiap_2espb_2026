@@ -10,6 +10,21 @@ spring:
     driver-class-name: org.h2.Driver
     username: orlandao
     password: 12345678
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 900000
+      pool-name: blogLocalPool
+      auto-commit: true
+
+  # ===============================
+  # JPA/HIBERNATE CONFIGURATION
+  # ===============================
+  # ======================================
+  # DATABASE CONNECTION POOL CONFIGURATION
+  # ======================================
 
   sql:
     init:
@@ -27,7 +42,51 @@ spring:
         settings:
           trace: true
           web-allow-others: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 20
+        order_updates: true
+        order_inserts: true
 
 
 
 
+
+# ===============================
+# APPLICATION LOGGING
+# ===============================
+logging:
+  level:
+    root: INFO
+    br.com.fiap.espb.ddd: DEBUG
+    pattern:
+#      console: %d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
+  file:
+    name: app.log
+    path: logs
+
+# ===============================
+# QUERY LOGGING
+# ===============================
+
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.springframework.jdbc.core: TRACE
+    org.springframework.transaction: TRACE
+
+# ===============================
+# SERVER CONFIGURATION
+# ===============================
+server:
+  servlet:
+    context-path: /
+    error:
+      include-message: always
+      incluse-stacktrace: always
+  compression:
+    enabled: true
