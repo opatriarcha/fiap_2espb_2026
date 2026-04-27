@@ -4,6 +4,8 @@ import br.com.fiap.espb.ddd.Blog.datasource.repositories.PostRepository;
 import br.com.fiap.espb.ddd.Blog.domainModel.entities.Post;
 import br.com.fiap.espb.ddd.Blog.domainModel.entities.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,4 +51,13 @@ public class PostServiceImpl implements PostService {
     public List<Post> findAll(){
         return this.postRepository.findAll();
     }
+
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    @Override
+    public Page<Post> findAll(Pageable pageable){
+        return this.postRepository.findAll(pageable);
+    }
+
+
+
 }

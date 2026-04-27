@@ -1,6 +1,8 @@
 package br.com.fiap.espb.ddd.Blog.service;
 
 import br.com.fiap.espb.ddd.Blog.domainModel.entities.Post;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,4 +24,7 @@ public interface PostService {
 
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     List<Post> findAll();
+
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public Page<Post> findAll(Pageable pageable);
 }
