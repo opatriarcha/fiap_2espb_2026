@@ -1,4 +1,4 @@
-package br.com.fiap.espb.es.ddd.taskManager.domainmodel;
+package br.com.fiap.espb.ddd.taskManager.domainmodel;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

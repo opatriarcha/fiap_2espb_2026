@@ -1,4 +1,4 @@
-package br.com.fiap.espb.es.ddd.taskManager.infrastructure.config;
+package br.com.fiap.espb.ddd.taskManager.infrastructure.config;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

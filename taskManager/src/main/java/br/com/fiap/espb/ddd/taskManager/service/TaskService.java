@@ -1,7 +1,7 @@
-package br.com.fiap.espb.es.ddd.taskManager.service;
+package br.com.fiap.espb.ddd.taskManager.service;
 
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.Task;
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.TaskStatus;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.Task;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.TaskStatus;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.domain.Page;

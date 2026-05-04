@@ -1,7 +1,7 @@
-package br.com.fiap.espb.es.ddd.taskManager.dto;
+package br.com.fiap.espb.ddd.taskManager.dto;
 
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.TaskPriority;
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.TaskStatus;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.TaskPriority;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.TaskStatus;
 import java.time.LocalDate;
 import java.util.Objects;
 

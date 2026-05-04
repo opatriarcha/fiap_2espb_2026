@@ -1,9 +1,9 @@
-package br.com.fiap.espb.es.ddd.taskManager.controllers;
+package br.com.fiap.espb.ddd.taskManager.controllers;
 
-import br.com.fiap.espb.es.ddd.taskManager.dto.TaskDTO;
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.Task;
-import br.com.fiap.espb.es.ddd.taskManager.service.TaskService;
-import br.com.fiap.espb.es.ddd.taskManager.mapper.TaskMapper;
+import br.com.fiap.espb.ddd.taskManager.dto.TaskDTO;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.Task;
+import br.com.fiap.espb.ddd.taskManager.service.TaskService;
+import br.com.fiap.espb.ddd.taskManager.mapper.TaskMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

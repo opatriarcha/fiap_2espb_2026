@@ -1,6 +1,6 @@
-package br.com.fiap.espb.es.ddd.taskManager.infrastructure.config;
+package br.com.fiap.espb.ddd.taskManager.infrastructure.config;
 
-import br.com.fiap.espb.es.ddd.taskManager.service.JpaUserDetailsService;
+import br.com.fiap.espb.ddd.taskManager.service.JpaUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -54,8 +54,8 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService);
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);
+//        provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(this.passwordEncoder());
         return provider;
     }
@@ -67,8 +67,8 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationManager authenticationManager() {
-        var authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(this.userDetailsService);
+        var authProvider = new DaoAuthenticationProvider(userDetailsService);
+//        authProvider.setUserDetailsService(this.userDetailsService);
         authProvider.setPasswordEncoder(this.passwordEncoder());
 
         return new ProviderManager(authProvider);

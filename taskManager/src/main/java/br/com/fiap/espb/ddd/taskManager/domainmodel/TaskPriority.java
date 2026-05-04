@@ -1,4 +1,4 @@
-package br.com.fiap.espb.es.ddd.taskManager.domainmodel;
+package br.com.fiap.espb.ddd.taskManager.domainmodel;
 
 
 public enum TaskPriority{

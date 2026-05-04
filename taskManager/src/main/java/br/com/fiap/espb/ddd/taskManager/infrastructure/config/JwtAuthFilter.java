@@ -1,6 +1,6 @@
-package br.com.fiap.espb.es.ddd.taskManager.infrastructure.config;
+package br.com.fiap.espb.ddd.taskManager.infrastructure.config;
 
-import br.com.fiap.espb.es.ddd.taskManager.service.JpaUserDetailsService;
+import br.com.fiap.espb.ddd.taskManager.service.JpaUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;

@@ -1,9 +1,9 @@
-package br.com.fiap.espb.es.ddd.taskManager.infrastructure.runner;
+package br.com.fiap.espb.ddd.taskManager.infrastructure.runner;
 
-import br.com.fiap.espb.es.ddd.taskManager.datasource.repository.TaskRepository;
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.Task;
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.TaskPriority;
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.TaskStatus;
+import br.com.fiap.espb.ddd.taskManager.datasource.repository.TaskRepository;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.Task;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.TaskPriority;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.TaskStatus;
 import java.time.LocalDate;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

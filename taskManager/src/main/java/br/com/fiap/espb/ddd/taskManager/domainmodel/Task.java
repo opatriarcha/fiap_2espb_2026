@@ -1,4 +1,4 @@
-package br.com.fiap.espb.es.ddd.taskManager.domainmodel;
+package br.com.fiap.espb.ddd.taskManager.domainmodel;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -56,12 +56,12 @@ public class Task {
     @Enumerated(EnumType.STRING)
     @NotNull(message = "Status cannot be null.")
     @Column(nullable = false, name = "STATUS")
-    private @Getter @Setter TaskStatus status;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    private @Getter @Setter TaskStatus status;
     
     @Enumerated(EnumType.STRING)
     @NotNull(message = "Priority cannot be null.")
     @Column(nullable = false, name = "PRIORITY")
-    private @Getter @Setter TaskPriority priority; 
+    private @Getter @Setter TaskPriority priority;
     
     public Long getId() {
         return id;

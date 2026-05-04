@@ -1,11 +1,13 @@
-package br.com.fiap.espb.es.ddd.taskManager.service;
+package br.com.fiap.espb.ddd.taskManager.service;
 
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.AuthUser;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.AuthUser;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import br.com.fiap.espb.es.ddd.taskManager.datasource.repository.UserRepository;
+import br.com.fiap.espb.ddd.taskManager.datasource.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class JpaUserDetailsService implements UserDetailsService {
 
     private UserRepository userRepository;

@@ -1,7 +1,7 @@
-package br.com.fiap.espb.es.ddd.taskManager.mapper;
+package br.com.fiap.espb.ddd.taskManager.mapper;
 
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.Task;
-import br.com.fiap.espb.es.ddd.taskManager.dto.TaskDTO;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.Task;
+import br.com.fiap.espb.ddd.taskManager.dto.TaskDTO;
 
 public class TaskMapper {
 

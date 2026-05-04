@@ -1,7 +1,7 @@
-package br.com.fiap.espb.es.ddd.taskManager.datasource.repository;
+package br.com.fiap.espb.ddd.taskManager.datasource.repository;
 
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.Task;
-import br.com.fiap.espb.es.ddd.taskManager.domainmodel.TaskStatus;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.Task;
+import br.com.fiap.espb.ddd.taskManager.domainmodel.TaskStatus;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
