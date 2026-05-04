@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Tarefa</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${task.id == null ? 'Nova Tarefa' : 'Editar Tarefa'}"></h1>
+
+    <form th:action="@{/tasks/save}" th:object="${task}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+
+        <label>Título:</label>
+        <input type="text" th:field="*{title}"/>
+        <span class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+
+        <label>Descrição:</label>
+        <textarea th:field="*{description}"></textarea>
+
+        <label>Data de Criação:</label>
+        <input type="date" th:field="*{creationDate}"/>
+
+        <label>Data de Conclusão:</label>
+        <input type="date" th:field="*{completionDate}"/>
+
+        <label>Prazo:</label>
+        <input type="date" th:field="*{dueDate}"/>
+
+        <label>Status:</label>
+        <select th:field="*{status}">
+            <option th:each="s : ${statuses}" th:value="${s}" th:text="${s}"></option>
+        </select>
+
+        <label>Prioridade:</label>
+        <select th:field="*{priority}">
+            <option th:each="p : ${priorities}" th:value="${p}" th:text="${p}"></option>
+        </select>
+
+        <div>
+            <button type="button" onclick="confirmarEnvio()">Salvar</button>
+            <a th:href="@{/tasks}">Voltar</a>
+        </div>
+    </form>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast-hidden" th:text="${param.success} ?: ''"></div>
+
+<!-- Caixa de diálogo personalizada -->
+<div id="dialog-overlay" style="display:none;"></div>
+<div id="custom-dialog" style="display:none;">
+    <div class="dialog-content">
+        <p id="dialog-message">Você tem certeza?</p>
+        <div class="dialog-buttons">
+            <button id="confirm-yes">Sim</button>
+            <button id="confirm-no">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script>
+function showCustomDialog(message, onConfirm) {
+    document.getElementById('dialog-message').textContent = message;
+    document.getElementById('dialog-overlay').style.display = 'block';
+    document.getElementById('custom-dialog').style.display = 'block';
+
+    const yesBtn = document.getElementById('confirm-yes');
+    const noBtn = document.getElementById('confirm-no');
+
+    yesBtn.onclick = () => {
+        closeDialog();
+        onConfirm();
+    };
+    noBtn.onclick = closeDialog;
+}
+
+function closeDialog() {
+    document.getElementById('dialog-overlay').style.display = 'none';
+    document.getElementById('custom-dialog').style.display = 'none';
+}
+
+function confirmarEnvio() {
+    showCustomDialog("Deseja realmente salvar esta tarefa?", () => {
+        document.querySelector("form").submit();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const toast = document.getElementById("toast");
+    if (toast.textContent.trim() !== "") {
+        toast.classList.remove("toast-hidden");
+        toast.classList.add("toast-show");
+        setTimeout(() => {
+            toast.classList.remove("toast-show");
+            toast.classList.add("toast-hidden");
+        }, 3000);
+    }
+});
+</script>
+</body>
+</html>
