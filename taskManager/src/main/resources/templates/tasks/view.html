@@ -15,7 +15,7 @@
         <li><strong>Status:</strong> <span th:text="${task.status}"></span></li>
         <li><strong>Prioridade:</strong> <span th:text="${task.priority}"></span></li>
     </ul>
-    <a th:href="@{/tasks}">Voltar</a>
+    <a th:href="@{/templates/tasks}">Voltar</a>
 </div>
 
 <div id="toast" class="toast-hidden" th:text="${param.success} ?: ''"></div>
