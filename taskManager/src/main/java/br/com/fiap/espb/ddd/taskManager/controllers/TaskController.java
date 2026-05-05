@@ -65,6 +65,7 @@ public class TaskController {
             model.addAttribute("task", newTask.get());
             model.addAttribute("statuses", TaskStatus.values());
             model.addAttribute("priorities", TaskPriority.values());
+
             return "tasks/form";
         }
     }
