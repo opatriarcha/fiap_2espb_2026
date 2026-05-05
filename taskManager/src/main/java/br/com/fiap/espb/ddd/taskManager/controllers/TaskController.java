@@ -10,10 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -38,5 +37,50 @@ public class TaskController {
         this.taskService.save(task);
         return "redirect:/tasks";
     }
+
+    @GetMapping("/new")
+    public String showCreateForm( Model model ){
+        model.addAttribute("task", new Task());
+        model.addAttribute("statuses", TaskStatus.values());
+        model.addAttribute("priorities", TaskPriority.values());
+        return "tasks/form";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteTask(
+            @PathVariable("id") Long id,
+            Model model){
+        this.taskService.deleteById(id);
+        return "redirect:/tasks";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable("id") Long id,
+                               Model model){
+        Optional<Task> newTask = this.taskService.findById(id);
+        if( newTask.isEmpty()){
+            model.addAttribute("task",  new Task());
+            return "tasks/form";
+        }else{
+            model.addAttribute("task", newTask.get());
+            model.addAttribute("statuses", TaskStatus.values());
+            model.addAttribute("priorities", TaskPriority.values());
+            return "tasks/form";
+        }
+    }
+
+    @GetMapping("/view/{id}")
+    public String viewTask(@PathVariable("id") Long id, Model model){
+        Task task = this.taskService.findById(id).orElse(null);
+        model.addAttribute("task", task);
+        if(task == null)
+            return "redirect:/tasks";
+        model.addAttribute("task", task);
+        return "tasks/view";
+    }
+
+
+
+
 
 }
